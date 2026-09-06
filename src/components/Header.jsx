@@ -1,5 +1,9 @@
 function Header() {
-  return <h1 style={{ color: "green" }}>Fast React Pizza CO.</h1>;
+  return (
+    <header className="header">
+      <h1>Fast React Pizza CO.</h1>
+    </header>
+  );
 }
 
 export default Header;

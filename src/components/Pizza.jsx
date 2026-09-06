@@ -1,9 +1,13 @@
-function Pizza({ pizza }) {
+function Pizza({ pizza: { name, ingredients, price, photoName, soldOut } }) {
   return (
-    <>
-      <p>{pizza.name}</p>
-      <img src={pizza.photoName} alt="Pizza Photo" width={300} height={300} />
-    </>
+    <div className={`pizza ${soldOut ? "sold-out" : ""}`}>
+      <img src={photoName} alt={`${name} Photo`} />
+      <div>
+        <h3>{name}</h3>
+        <p>{ingredients}</p>
+        <span>{soldOut ? "Sold Out" : `Price: ${price}$`}</span>
+      </div>
+    </div>
   );
 }
 

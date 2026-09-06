@@ -22,7 +22,7 @@ body {
 }
 
 .container {
-  max-width: 80rem;
+  width: min(800px, 90%);
   margin: 0 auto;
 
   display: flex;
@@ -38,17 +38,17 @@ body {
 }
 
 .header h1 {
-  /* Non-accessible color */
-  color: #edc84b;
-  /* color: #af8602; */
+  color: #32bb20;
 
   text-transform: uppercase;
   text-align: center;
-  font-size: 5.2rem;
-  font-weight: 300;
+  text-wrap: balance;
+  font-size: clamp(3rem, 2.5vw, 5.2rem);
+  font-weight: 400;
   letter-spacing: 3px;
   position: relative;
-  width: 100%;
+  width: fit-content;
+  margin: 0 auto;
   display: block;
 }
 
@@ -57,18 +57,18 @@ body {
   display: block;
   content: "";
   height: 3px;
-  width: 12rem;
+  width: 4rem;
   background-color: #edc84b;
   position: absolute;
   top: calc(50% - 1px);
 }
 
 .header h1::before {
-  left: 0;
+  left: -10%;
 }
 
 .header h1::after {
-  right: 0;
+  right: -10%;
 }
 
 /* *************** */
@@ -101,11 +101,12 @@ body {
 .pizzas {
   list-style: none;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 4.8rem;
 }
 
 .pizza {
+  overflow: hidden;
   display: flex;
   gap: 3.2rem;
 }
@@ -114,6 +115,11 @@ body {
   width: 12rem;
   aspect-ratio: 1;
   align-self: start;
+  transition: all 0.2s;
+}
+
+.pizza:not(.sold-out) img:hover {
+  scale: 1.1;
 }
 
 .pizza div {
@@ -175,7 +181,8 @@ body {
 }
 
 .btn:hover {
-  background-color: #e9bb24;
+  color: #f7f2e9;
+  background-color: #cca21a;
 }
 
 /*
