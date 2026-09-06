@@ -1,3 +1,7 @@
+import Footer from "./components/Footer";
+import Header from "./components/Header";
+import PizzaMenu from "./components/PizzaMenu";
+
 function App() {
   // Our PizzaData to pass down and render
   const pizzaData = [
@@ -46,9 +50,11 @@ function App() {
   ];
 
   return (
-    <>
-      <h1>Pizza Menu App</h1>
-    </>
+    <div className="container">
+      <Header />
+      <PizzaMenu data={pizzaData} />
+      <Footer />
+    </div>
   );
 }
 
